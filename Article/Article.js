@@ -112,3 +112,44 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+const lambdaTitle = document.querySelector(".articles");
+
+data.forEach(data => {
+  //console.log('creating panel:', data.title)
+  lambdaTitle.appendChild(createData(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+});
+
+function createData(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  const ardy = document.createElement("div")
+  const headda = document.createElement("h2")
+  const p1 = document.createElement("p")
+  const p2 = document.createElement("p")
+  const p3 = document.createElement("p")
+  const p4 = document.createElement("p")
+  const spanBtn = document.createElement("span")
+
+  ardy.appendChild(headda)
+  ardy.appendChild(p1)
+  ardy.appendChild(p2)
+  ardy.appendChild(p3)
+  ardy.appendChild(p4)
+  ardy.appendChild(spanBtn)
+
+  ardy.classList.add("article")
+  p1.classList.add("date")
+  spanBtn.classList.add("expandButton")
+
+  headda.textContent = title
+  p1.textContent = date
+  p2.textContent = firstParagraph
+  p3.textContent = secondParagraph
+  p4.textContent = thirdParagraph
+  spanBtn.textContent = "Button Here"
+
+  spanBtn.addEventListener("click", event => {
+    ardy.classList.toggle("article-open")
+  })
+  return ardy;
+
+}
