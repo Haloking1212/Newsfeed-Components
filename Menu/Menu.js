@@ -33,3 +33,27 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+const menyou = document.querySelector(".header")
+
+function menya(arr) {
+  const di = document.createElement("div")
+  const unorderList = document.createElement("ul")
+
+  di.appendChild(unorderList)
+
+  di.classList.add("menu")
+  menuItems.forEach(item => {
+    const list = document.createElement("li");
+    list.textContent = item;
+    unorderList.append(list);
+  });
+  const menuBtn = document.querySelector(".menu-button")
+
+  menuBtn.addEventListener("click", () => {
+    di.classList.toggle("menu--open");
+  });
+  return di;
+}
+
+menyou.prepend(menya(menuItems));
